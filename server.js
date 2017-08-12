@@ -6,6 +6,9 @@ var app = express();
 var db = require('./db/nosql/config.js');
 var Cobra = require('./db/nosql/models/cobra.js');
 
+var SQLdb = require('./db/sql/config.js');
+var SQLCobra = require('./db/sql/models/cobra.js');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/client/angular'));
@@ -28,6 +31,7 @@ app.post('/api/cobras', function(req, res) {
 			res.json(cobras);
 		})
 	})
+
 })
 
 app.get('/api/cobras', function(req, res){
@@ -37,6 +41,24 @@ app.get('/api/cobras', function(req, res){
 			}
 			res.json(cobras);
 		});
+})
+
+app.post('/api/sqlcobras', function(req, res) {
+	var name = req.body.name;
+	var age = req.body.age;
+
+	SQLCobra.create({ name: name, age: age})
+	.then((SQLCobra) => {
+		console.log(SQLCobra);
+		res.send(SQLCobra);
+	})
+})
+
+app.get('/api/sqlcobras', function(req, res) {
+	SQLCobra.findAll()
+	.then(function(cobras) {
+		res.json(cobras);
+	})
 })
 
 app.listen(port, function() {

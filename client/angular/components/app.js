@@ -13,14 +13,25 @@ angular.module('cobras')
 	$http.post('/api/cobras', this.data)
 	.success((cobras) => {
 		console.log(cobras);
-		this.successPost = 'Succesfully submitted!';
+		this.mongoSuccessPost = 'Mongo Succesfully submitted!';
 	})
+
+	$http.post('/api/sqlcobras', this.data)
+	.success((cobras) => {
+		console.log(cobras);
+		this.SQLSuccessPost = 'SQL Succesfully submitted!';
+	})
+
 	}
 
 	this.onClick2 = function(){
 		$http.get('/api/cobras')
 		.success((cobras) => {
-			this.cobras = cobras;
+			this.mongoCobras = cobras;
+		})
+		$http.get('/api/sqlcobras')
+		.success((cobras) => {
+			this.SQLCobras = cobras;
 		})
 	}
 })

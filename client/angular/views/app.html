@@ -3,13 +3,24 @@
 	<input type="text" placeholder="cobra age" ng-model="$ctrl.age">
 	<button type="submit" ng-click="$ctrl.onClick()">Submit</button>
 	<button type="submit" ng-click="$ctrl.onClick2()"> Show me all the cobras! </button>
-	<div> {{ $ctrl.successPost }} </div>
+	<div> {{ $ctrl.mongoSuccessPost }} </div>
+	<div> {{ $ctrl.SQLSuccessPost }} </div>
 	<div> 
 	<ul>
-		<li ng-repeat="cobra in $ctrl.cobras" >
-			<p> Cobra Name: {{ cobra.name }} </p>
-			<p> Cobra Age: {{ cobra.age }} </p>
+		<li ng-repeat="cobra in $ctrl.mongoCobras" >
+			<p> Mongo Cobra Name: {{ cobra.name }} </p>
+			<p> Mongo Cobra Age: {{ cobra.age }} </p>
 		</li>
 	</ul>
 	</div>
+
+	<div> 
+	<ul>
+		<li ng-repeat="cobra in $ctrl.SQLCobras" >
+			<p> SQL Cobra Name: {{ cobra.name }} </p>
+			<p> SQL Cobra Age: {{ cobra.age }} </p>
+		</li>
+	</ul>
+	</div>
+
 </div>
