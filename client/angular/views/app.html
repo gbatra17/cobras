@@ -1,0 +1,15 @@
+<div>
+	<input type="text" placeholder="cobra name" ng-model="name">
+	<input type="text" placeholder="cobra age" ng-model="age">
+	<button type="submit" ng-click="onClick()">Submit</button>
+	<button type="submit" ng-click="onClick2()"> Show me all the cobras! </button>
+	<div> {{ successPost }} </div>
+	<div> 
+	<ul>
+		<li ng-repeat="cobra in cobras" >
+			<p> Cobra Name: {{ cobra.name }} </p>
+			<p> Cobra Age: {{ cobra.age }} </p>
+		</li>
+	</ul>
+	</div>
+</div>
