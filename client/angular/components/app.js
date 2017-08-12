@@ -1,26 +1,26 @@
 angular.module('cobras')
-.controller('AppCtrl', function($scope, $http) {
-	$scope.name = '';
-	$scope.age = 0;
+.controller('AppCtrl', function($http) {
+	this.name = '';
+	this.age = 0;
 
-	$scope.onClick = function(){
+	this.onClick = function(){
 
-	$scope.data = {
-	  name: $scope.name,
-	  age: $scope.age
+	this.data = {
+	  name: this.name,
+	  age: this.age
 	};
 
-	$http.post('/api/cobras', $scope.data)
+	$http.post('/api/cobras', this.data)
 	.success((cobras) => {
 		console.log(cobras);
-		$scope.successPost = 'Succesfully submitted!';
+		this.successPost = 'Succesfully submitted!';
 	})
 	}
 
-	$scope.onClick2 = function(){
+	this.onClick2 = function(){
 		$http.get('/api/cobras')
 		.success((cobras) => {
-			$scope.cobras = cobras;
+			this.cobras = cobras;
 		})
 	}
 })

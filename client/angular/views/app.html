@@ -1,12 +1,12 @@
 <div>
-	<input type="text" placeholder="cobra name" ng-model="name">
-	<input type="text" placeholder="cobra age" ng-model="age">
-	<button type="submit" ng-click="onClick()">Submit</button>
-	<button type="submit" ng-click="onClick2()"> Show me all the cobras! </button>
-	<div> {{ successPost }} </div>
+	<input type="text" placeholder="cobra name" ng-model="$ctrl.name">
+	<input type="text" placeholder="cobra age" ng-model="$ctrl.age">
+	<button type="submit" ng-click="$ctrl.onClick()">Submit</button>
+	<button type="submit" ng-click="$ctrl.onClick2()"> Show me all the cobras! </button>
+	<div> {{ $ctrl.successPost }} </div>
 	<div> 
 	<ul>
-		<li ng-repeat="cobra in cobras" >
+		<li ng-repeat="cobra in $ctrl.cobras" >
 			<p> Cobra Name: {{ cobra.name }} </p>
 			<p> Cobra Age: {{ cobra.age }} </p>
 		</li>
